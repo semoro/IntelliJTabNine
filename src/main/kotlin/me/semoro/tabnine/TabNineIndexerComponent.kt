@@ -20,6 +20,7 @@ import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.project.ProjectManagerListener
 import com.intellij.openapi.util.Disposer
 import com.intellij.psi.search.FileTypeIndex
+import com.intellij.psi.search.FilenameIndex
 import com.intellij.psi.search.GlobalSearchScopes
 
 

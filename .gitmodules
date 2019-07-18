@@ -1,0 +1,3 @@
+[submodule "TabNine"]
+	path = TabNine
+	url = git@github.com:zxqfl/TabNine.git

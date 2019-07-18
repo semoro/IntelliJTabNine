@@ -3,6 +3,7 @@
  * Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
  */
 
+import org.jetbrains.intellij.tasks.PrepareSandboxTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -23,7 +24,7 @@ repositories {
 
 intellij {
     version = "IC-2019.1"
-    pluginName = "TabNine support"
+    pluginName = "TabNineSupport"
 
 }
 dependencies {
@@ -44,3 +45,14 @@ compileTestKotlin.kotlinOptions {
 val runIde: JavaExec by tasks
 runIde.maxHeapSize = "2g"
 
+
+
+fun PrepareSandboxTask.addBundledTabNine() {
+    from(rootDir.resolve("TabNine/binaries")) {
+        into("$pluginName/BundledTabNine")
+    }
+}
+
+tasks.withType<PrepareSandboxTask>().forEach {
+    it.addBundledTabNine()
+}
