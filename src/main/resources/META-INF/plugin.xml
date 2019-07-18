@@ -1,0 +1,24 @@
+<idea-plugin>
+
+    <name>TabNine Support</name>
+
+    <id>me.semoro.tabnine</id>
+    <description>TabNine support for IDEA, you can get TabNine at tabnine.com</description>
+    <vendor>Simon Ogorodnik</vendor>
+    <extensions defaultExtensionNs="com.intellij">
+        <completion.contributor language="any" implementationClass="me.semoro.tabnine.TabNineCompletionContributor"/>
+        <weigher key="completion" implementationClass="me.semoro.tabnine.TabNineCompletionWeigher" id="tabNine" order="last"/>
+        <projectService serviceImplementation="me.semoro.tabnine.TabNineCommunicationHandler" />
+        <projectService serviceImplementation="me.semoro.tabnine.TabNineIndexService" />
+    </extensions>
+
+    <application-components>
+        <component>
+            <implementation-class>me.semoro.tabnine.TabNineIndexerComponent</implementation-class>
+        </component>
+    </application-components>
+    <actions>
+        <action id="me.semoro.tabnine.ReindexAction" class="me.semoro.tabnine.ReindexAction"
+                text="Reindex project in TabNine"/>
+    </actions>
+</idea-plugin>
