@@ -12,7 +12,6 @@
     <vendor>Simon Ogorodnik</vendor>
     <extensions defaultExtensionNs="com.intellij">
         <completion.contributor language="any" implementationClass="me.semoro.tabnine.TabNineCompletionContributor"/>
-        <weigher key="completion" implementationClass="me.semoro.tabnine.TabNineCompletionWeigher" id="tabNine" order="last"/>
         <projectService serviceImplementation="me.semoro.tabnine.TabNineCommunicationHandler" />
         <projectService serviceImplementation="me.semoro.tabnine.TabNineIndexService" />
     </extensions>

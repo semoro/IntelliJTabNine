@@ -54,6 +54,7 @@ class TabNineCompletionContributor : CompletionContributor() {
         val insertionHandler = TabNineInsertionHandler()
 
         for ((index, entry) in response.results.withIndex()) {
+
             var element = LookupElementBuilder.create(ItemData(response.old_prefix, entry, index))
             if (entry.deprecated == true)
                 element = element.strikeout()
@@ -61,7 +62,7 @@ class TabNineCompletionContributor : CompletionContributor() {
             element.putUserData(DIRECT_INSERTION, true)
 
 
-            result.addElement(element)
+            result.addElement(PrioritizedLookupElement.withPriority(element, 10.0))
         }
 
         for (userMessage in response.user_message) {
