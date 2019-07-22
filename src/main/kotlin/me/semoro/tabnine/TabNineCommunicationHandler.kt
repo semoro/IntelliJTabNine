@@ -24,7 +24,7 @@ import java.util.concurrent.locks.ReentrantLock
 import kotlin.concurrent.withLock
 import kotlin.reflect.full.findAnnotation
 
-const val tabNineVersion = "1.0.14"
+const val tabNineVersion = "2.0.2"
 
 class TabNineProcess(val process: Process) : AutoCloseable {
     override fun close() {
@@ -185,7 +185,8 @@ object Protocol {
     data class AutocompleteResponse(
         val old_prefix: String,
         val results: List<ResultEntry>,
-        val user_message: List<String>
+        val user_message: List<String>,
+        val docs: List<String>
     )
 
     @Serializable
