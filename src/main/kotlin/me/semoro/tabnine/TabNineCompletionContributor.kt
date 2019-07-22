@@ -58,6 +58,8 @@ class TabNineCompletionContributor : CompletionContributor() {
             var element = LookupElementBuilder.create(ItemData(response.old_prefix, entry, index))
             if (entry.deprecated == true)
                 element = element.strikeout()
+            if (entry.detail != null)
+                element = element.withTypeText(entry.detail)
             element = element.withInsertHandler(insertionHandler)
             element.putUserData(DIRECT_INSERTION, true)
 
